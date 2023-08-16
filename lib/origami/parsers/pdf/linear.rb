@@ -31,7 +31,7 @@ module Origami
         class LinearParser < Parser
             def parse(stream)
                 super
-            
+
                 pdf = parse_initialize
 
                 #
@@ -48,7 +48,7 @@ module Origami
                     rescue
                         error "Cannot read : " + (@data.peek(10) + "...").inspect
                         error "Stopped on exception : " + $!.message
-                        STDERR.puts $!.backtrace.join($/)
+                        error $!.backtrace.join($/)
 
                         break
                     end
